@@ -76,7 +76,7 @@ class Operation(object):
 				if os.path.exists('./data/usr/%s'%name):
 					pass
 				else:
-					os.mkdir('./data/usr/%s'%name)
+					os.mkdirs('./data/usr/%s'%name)
 				datatrans.savefile(self.today,name,"today")
 				datatrans.savefile(self.future,name,'future')
 				datatrans.savefile(self.post,name,'postpone')
