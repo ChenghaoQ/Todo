@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
 from distutils.core import setup
 
 setup(
@@ -6,7 +9,9 @@ setup(
 	author='Chenghao Qian',
 	author_email='qch.jacob.jm@gmail.com',
 	packages=['todoo'],
+	scripts=['todoo/TODO'],
 	package_data={'todoo':['data/*.dat','data/usr/*/*.dat']},
+	url='https://github.com/ChenghaoQ/Todo',
 	license='COPYING.WTFPL',
-	description='A simple todolist.'
+	description='A simple todolist with cursor.'
 )
