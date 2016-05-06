@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import pickle
+import os
 class Sav(object):
 	def __init__(self,todo):
 		self.data=todo.todolist
@@ -10,12 +11,14 @@ class Sav(object):
 		self.tmp=todo.tmp'''
 		self.list=[todo.cursor,todo.counter,todo.i,todo.tmp]
 	def savedata(self,id,title):
-		dat1=open("../data/usr/%s/%s.dat"%(id,title),'wb')
+		data_path=os.path.join(os.path.dirname(__file__), '../data/usr/%s/%s.dat"%(id,title)') 
+		dat1=open(data_path,'wb')
 
 		pickle.dump(self.data,dat1)
 		dat1.close()
 	def saveargs(self,id,title):
-		dat2=open("../data/usr/%s/%s_args.dat"%(id,title),'wb')
+		args_path=os.path.join(os.path.dirname(__file__), '../data/usr/%s/%s_args.dat"%(id,title)')
+		dat2=open(args_path,'wb')
 		pickle.dump(self.list,dat2)
 		dat2.close()
 def savefile(todo,userid,title):
@@ -24,12 +27,14 @@ def savefile(todo,userid,title):
 	wrote.saveargs(userid,title)
 
 def loadfile(id,title):
-	datafile=open("../data/usr/%s/%s.dat"%(id,title),'rb')
+	data_path= os.path.join(os.path.dirname(__file__), '../data/usr/%s/%s.dat"%(id,title)') 
+	datafile=open(data_path,'rb')
 	listdata=pickle.load(datafile)	
 	datafile.close()
 	return listdata
 def loadargs(id,title):
-	dat3=open("../data/usr/%s/%s_args.dat"%(id,title),'rb')
+	args_path=os.path.join(os.path.dirname(__file__), '../data/usr/%s/%s_args.dat"%(id,title)')
+	dat3=open(args_path,'rb')
 	datalist=pickle.load(dat3)
 
 	return datalist[0][0],datalist[1][0],datalist[2][0],datalist[3][0]
@@ -46,14 +51,16 @@ def loadall(userid,today,future,post,comp):
 
 
 def saveuser(usrdict,userid):
-	f=open('../data/Userdata.dat',"w")
+	user_path=os.path.join(os.path.dirname(__file__), '../data/Userdata.dat')
+	f=open(user_path,"w")
 	#for line in usrdict.item():
 	for k, v in usrdict.items():
 		f.writelines('{} {} {} {}'.format(k,v,userid[k],'\n') )
 	f.close()
 
 def loaduser():
-	g=open('../data/Userdata.dat','r')
+	user_path=os.path.join(os.path.dirname(__file__), '../data/Userdata.dat')
+	g=open(user_path,'r')
 	list1=[]
 	list2=[]
 	list3=[]
