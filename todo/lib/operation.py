@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from todoo.lib import useraction
-from todoo.lib import helpdoc
-from todoo.lib import datatrans
+from todo.lib import useraction
+from todo.lib import helpdoc
+from todo.lib import datatrans
 import os
 class Operation(object):
 	def __init__(self,current,post,comp,future,today):
@@ -73,10 +73,10 @@ class Operation(object):
 						self.todolist.append(['☐',self.blank,'[   ]'])
 				break
 			elif other == 'Save':
-				if os.path.exists('./data/usr/%s'%name):
+				if os.path.exists('../data/usr/%s'%name):
 					pass
 				else:
-					os.mkdir('./data/usr/%s'%name)
+					os.mkdir('../data/usr/%s'%name)
 				datatrans.savefile(self.today,name,"today")
 				datatrans.savefile(self.future,name,'future')
 				datatrans.savefile(self.post,name,'postpone')

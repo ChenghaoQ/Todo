@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from todoo.lib import getch
+from todo.lib import getch
 #import user
 actions=['Up','Down','New','Complete','Postpone','Remove','Help','Other','Switch']
 letter_code="WSNCPRHOVwsncprhov"

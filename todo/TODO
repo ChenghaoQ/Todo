@@ -3,7 +3,7 @@
 
 
 import os
-from todoo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
+from todo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
 
 def main():
 	user=usermanager.User()

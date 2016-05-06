@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
-from todoo.lib import useraction
+from todo.lib import useraction
 
 class TODO(object):
 	

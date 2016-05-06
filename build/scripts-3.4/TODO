@@ -3,14 +3,17 @@
 
 
 import os
-from todoo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
+from todo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
 
 def main():
 	user=usermanager.User()
 	try:
 		user.usr,user.id=datatrans.loaduser()
 	except:
-		pass
+		os.system('clear')
+		print('*************************\n\n\t\t\Welcome to TODO!\n\n\n\n')
+		print('Please Create a New User at the first time')
+		input('Press <Enter> to continue ...')
 	while True:
 		os.system('clear')
 		menu.main_menu()
