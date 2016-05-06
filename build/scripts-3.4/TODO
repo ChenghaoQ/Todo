@@ -1,12 +1,16 @@
-from bin import menu
-from bin import helpdoc
-from bin import yourtodo
-from bin import usermanager
-from bin import datatrans
+#!/bin/python3
+# -*- coding: UTF-8 -*-
+
+
 import os
+from todoo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
+
 def main():
 	user=usermanager.User()
-	user.usr,user.id=datatrans.loaduser()
+	try:
+		user.usr,user.id=datatrans.loaduser()
+	except:
+		pass
 	while True:
 		os.system('clear')
 		menu.main_menu()
@@ -60,6 +64,7 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
 
 
 

@@ -10,12 +10,12 @@ class Sav(object):
 		self.tmp=todo.tmp'''
 		self.list=[todo.cursor,todo.counter,todo.i,todo.tmp]
 	def savedata(self,id,title):
-		dat1=open("./data/usr/%s/%s.dat"%(id,title),'wb')
+		dat1=open("../data/usr/%s/%s.dat"%(id,title),'wb')
 
 		pickle.dump(self.data,dat1)
 		dat1.close()
 	def saveargs(self,id,title):
-		dat2=open("./data/usr/%s/%s_args.dat"%(id,title),'wb')
+		dat2=open("../data/usr/%s/%s_args.dat"%(id,title),'wb')
 		pickle.dump(self.list,dat2)
 		dat2.close()
 def savefile(todo,userid,title):
@@ -24,12 +24,12 @@ def savefile(todo,userid,title):
 	wrote.saveargs(userid,title)
 
 def loadfile(id,title):
-	datafile=open("./data/usr/%s/%s.dat"%(id,title),'rb')
+	datafile=open("../data/usr/%s/%s.dat"%(id,title),'rb')
 	listdata=pickle.load(datafile)	
 	datafile.close()
 	return listdata
 def loadargs(id,title):
-	dat3=open("./data/usr/%s/%s_args.dat"%(id,title),'rb')
+	dat3=open("../data/usr/%s/%s_args.dat"%(id,title),'rb')
 	datalist=pickle.load(dat3)
 
 	return datalist[0][0],datalist[1][0],datalist[2][0],datalist[3][0]
@@ -46,14 +46,14 @@ def loadall(userid,today,future,post,comp):
 
 
 def saveuser(usrdict,userid):
-	f=open('./data/Userdata.dat',"w")
+	f=open('../data/Userdata.dat',"w")
 	#for line in usrdict.item():
 	for k, v in usrdict.items():
 		f.writelines('{} {} {} {}'.format(k,v,userid[k],'\n') )
 	f.close()
 
 def loaduser():
-	g=open('./data/Userdata.dat','r')
+	g=open('../data/Userdata.dat','r')
 	list1=[]
 	list2=[]
 	list3=[]

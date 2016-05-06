@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-import todoo.bin.menu as menu
-import todoo.bin.helpdoc as helpdoc
-import todoo.bin.yourtodo as yourtodo
-import todoo.bin.usermanager as usermanager
-import todoo.bin.datatrans as datatrans
+
 import os
+from todoo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
+
 def main():
 	user=usermanager.User()
-	user.usr,user.id=datatrans.loaduser()
+	try:
+		user.usr,user.id=datatrans.loaduser()
+	except:
+		os.system('clear')
+		print('*************************\n\n\t\t\Welcome to TODO!\n\n\n\n')
+		print('Please Create a New User at the first time')
+		input('Press <Enter> to continue ...')
 	while True:
 		os.system('clear')
 		menu.main_menu()

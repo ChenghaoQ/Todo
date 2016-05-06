@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from . import useraction
-from . import checklist
-from . import datatrans
-from . import draw
+from todoo.lib import useraction
+from todoo.lib import checklist
+from todoo.lib import datatrans
+from todoo.lib import draw
 import os
-from . import operation
-from . import movement
+from todoo.lib import operation
+from todoo.lib import movement
 #from . import helpdoc
 
 

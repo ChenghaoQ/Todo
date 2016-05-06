@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from . import useraction
-from . import helpdoc
-from . import datatrans
+from todoo.lib import useraction
+from todoo.lib import helpdoc
+from todoo.lib import datatrans
 import os
 class Operation(object):
 	def __init__(self,current,post,comp,future,today):
