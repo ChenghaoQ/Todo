@@ -4,13 +4,13 @@
 from distutils.core import setup
 
 setup(
-	name='TODO',
-	version='0.0.1',
+	name='Todooo',
+	version='0.0.2',
 	author='Chenghao Qian',
 	author_email='qch.jacob.jm@gmail.com',
-	packages=['todo','todo.lib'],
-	scripts=['todo/TODO'],
-	package_data={'todo':['data/*.dat','data/usr/*/*.dat']},
+	packages=['Todooo','Todooo.lib'],
+	scripts=['Todooo/TODO'],
+	package_data={'Todooo':['data/*.dat','data/usr/*/*.dat']},
 	url='https://github.com/ChenghaoQ/Todo',
 	license='COPYING.WTFPL',
 	description='A simple todolist with cursor.'
