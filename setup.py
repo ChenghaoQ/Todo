@@ -8,7 +8,7 @@ setup(
 	version='0.0.1',
 	author='Chenghao Qian',
 	author_email='qch.jacob.jm@gmail.com',
-	packages=['todoo'],
+	packages={'todoo':'todoo/bin'},
 	scripts=['todoo/TODO'],
 	package_data={'todoo':['data/*.dat','data/usr/*/*.dat']},
 	url='https://github.com/ChenghaoQ/Todo',

@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-# -*- coding: UTF-8 -*-
-
-import todoo.bin.menu as menu
-import todoo.bin.helpdoc as helpdoc
-import todoo.bin.yourtodo as yourtodo
-import todoo.bin.usermanager as usermanager
-import todoo.bin.datatrans as datatrans
+from bin import menu
+from bin import helpdoc
+from bin import yourtodo
+from bin import usermanager
+from bin import datatrans
 import os
 def main():
 	user=usermanager.User()
@@ -63,7 +60,6 @@ def main():
 
 if __name__ == '__main__':
 	main()
-
 
 
 
