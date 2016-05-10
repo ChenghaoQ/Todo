@@ -6,6 +6,7 @@ import os
 from Todooo.lib import menu,helpdoc,yourtodo,usermanager,datatrans
 
 def main():
+	print('\033[0m')
 	user=usermanager.User()
 	try:
 		user.usr,user.id=datatrans.loaduser()
