@@ -15,7 +15,11 @@ def your_todolist(userid):
 	
 	comp=checklist.TODO('* * * * Complete * * * *')
 	switcher=0
-	#current=today
+	status={0:today,
+			1:future,
+			2:post,
+			3:comp}
+	current=today
 
 	def init():
 
@@ -25,11 +29,13 @@ def your_todolist(userid):
 		except FileNotFoundError:
 			today.reset('Reset')
 			future.reset('Reset')
-		today.todolist[0][2]=' ⬅ '
+		current.todolist[current.cursor[0]][2]=' ⬅ '
+		
 
 	def GoToDo():
 		
 		nonlocal switcher
+		nonlocal current
 		while True:
 			#Draw the list
 			os.system('clear')
@@ -47,76 +53,50 @@ def your_todolist(userid):
 			print("-"*40)
 			#Here is a problem
 			if switcher%4==0:
-				try:
-					current.todolist[current.cursor[0]][2]='   '
-				except:
-					pass
-				current=today
-				if not current.todolist:
-					current.todolist[current.cursor[0]][2]=' ⬅ '
 				print("Your Current position: Today")
 			elif switcher%4==1:
-				try:
-
-					current.todolist[current.cursor[0]][2]='   '
-				except:
-					pass
-				current=future
-				if not current.todolist:
-					current.todolist[current.cursor[0]][2]=' ⬅ '
 				print("Your Current position: Future")
 			elif switcher%4==2:
-				try:
-					current.todolist[current.cursor[0]][2]='   '
-				except:
-					pass
-
-				current=post
-				if not current.todolist:
-					current.todolist[current.cursor[0]][2]=' ⬅ '
 				print("Your Current position: Gone")
 			elif switcher%4==3:
-				
-				try:
-					current.todolist[current.cursor[0]][2]='   '
-				except:
-					pass
-
-				current=comp
-				if not current.todolist:
-					current.todolist[future.cursor[0]][2]=' ⬅ '
 				print("Your Current position: Complete")
-
+			
 			print("* * * * * * * Description * * * * * * *\n")
-
+			print('\033[95m')
 			try:
 				print("->",current.todolist[current.cursor[0]][3])
+				
 			except:
 				print("Nothing here")
+			print('\033[0m')
 			print("- - - - - - - - - - - - - - - - - - - -")
 
 			action = useraction.get_user_action()
 			
 			
 			if action == 'Switch':
+				try:
+					current.todolist[current.cursor[0]][2]='   '
+				except:
+					pass
 				switcher+=1
+				current=status[switcher%4]
+				if current.todolist:
+					current.todolist[current.cursor[0]][2]=' ⬅ '
 				continue
+			
 			if action in useraction.moves:
-				while True:
-					print('\n\n\n',(len(current.todolist)-1),current.cursor[0])
-					input()
-					movement.moves(action,current)
+				while True:		
 					
-					if (len(current.todolist)-1) ==current.cursor[0] and action in 'Ss':
-						print("Uhoh..Out of Range..")
-						current.cursor[0]-=1
+					if len(current.todolist) ==(current.cursor[0]+1) and action == 'Down':
+						print("Uhoh..Out of Range..")						
 						break
-					elif current.cursor==0 and action in 'Ws':
-						print("Uhoh..Out of Range..")
-						current.cursor[0]+=1
+					elif current.cursor[0]==0 and action == 'Up':
+						print("Uhoh..Out of Range..")					
 						break
-					
-					break
+					else:
+						movement.moves(action,current)
+						break
 				continue
 			else:
 				op=operation.Operation(current,post,comp,future,today)

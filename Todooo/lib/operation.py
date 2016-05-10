@@ -33,12 +33,13 @@ class Operation(object):
 		self.todolist[self.cursor[0]][2]='   '
 		self.comp.todolist.append(self.todolist[self.cursor[0]])
 		self.remove_task()
-
+		self.todolist[self.cursor[0]][2]=' ⬅ '
 	def postpone_todo(self):
 		self.todolist[self.cursor[0]][0]=self.status[2]
 		self.todolist[self.cursor[0]][2]='   '
 		self.post.todolist.append(self.todolist[self.cursor[0]])
 		self.remove_task()
+		self.todolist[self.cursor[0]][2]=' ⬅ '
 	def remove_task(self):
 		del self.todolist[self.cursor[0]]
 		self.counter[0]-=1
@@ -83,19 +84,22 @@ class Operation(object):
 				break
 			elif other == 'Return':
 				break
-			elif other == ('Back' or 'Quit'):
-				print("Your datawill be saveautomaticlly")
+			elif other == ('Back'):
+				self.todolist[self.cursor[0]][2]='   '
 				datatrans.savefile(self.today,name,"today")
 				datatrans.savefile(self.future,name,'future')
 				datatrans.savefile(self.post,name,'postpone')
 				datatrans.savefile(self.comp,name,'complete')
 				return 0
 			elif other == ('Exit'):
-				choice=input("Your data will not be saved if Exit directly\nStill want to quit?(y/n)")
-				if choice == 'y':
-					exit()
-				else:
-					break
+				print("Your data will be save automaticlly\nHave a nice day!")
+				self.todolist[self.cursor[0]][2]='   '
+				datatrans.savefile(self.today,name,"today")
+				datatrans.savefile(self.future,name,'future')
+				datatrans.savefile(self.post,name,'postpone')
+				datatrans.savefile(self.comp,name,'complete')
+				exit()
+
 			else:
 				print("Sorry, I can't do that, try again please~")
 	def execution(self,action,name):

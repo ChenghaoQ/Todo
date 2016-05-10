@@ -3,14 +3,6 @@ setup.py
 Todooo/TODO
 Todooo/__init__.py
 Todooo/data/Userdata.dat
-Todooo/data/usr/00000/complete.dat
-Todooo/data/usr/00000/complete_args.dat
-Todooo/data/usr/00000/future.dat
-Todooo/data/usr/00000/future_args.dat
-Todooo/data/usr/00000/postpone.dat
-Todooo/data/usr/00000/postpone_args.dat
-Todooo/data/usr/00000/today.dat
-Todooo/data/usr/00000/today_args.dat
 Todooo/lib/__init__.py
 Todooo/lib/checklist.py
 Todooo/lib/datatrans.py
@@ -20,6 +12,7 @@ Todooo/lib/helpdoc.py
 Todooo/lib/menu.py
 Todooo/lib/movement.py
 Todooo/lib/operation.py
+Todooo/lib/switch.py
 Todooo/lib/useraction.py
 Todooo/lib/usermanager.py
 Todooo/lib/yourtodo.py

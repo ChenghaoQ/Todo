@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
 	name='Todooo',
-	version='0.0.6',
+	version='0.0.8',
 	author='Chenghao Qian',
 	author_email='qch.jacob.jm@gmail.com',
 	packages=['Todooo','Todooo.lib'],
